@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   bonus_ft_strcmp.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 09:49:25 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/01/31 15:13:51 by ngriveau         ###   ########.fr       */
+/*   Created: 2022/11/08 16:39:54 by ngriveau          #+#    #+#             */
+/*   Updated: 2023/01/31 16:48:00 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus_push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int	i;
-	int	signe;
-	int	nb;
+	size_t	i;
 
-	signe = 1;
 	i = 0;
-	nb = 0;
-	while (('\t' <= str[i] && str[i] <= '\r') || (str[i] == ' '))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	while (s1[i] || s2[i])
 	{
-		i++;
-		signe = -signe;
-	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		nb = nb * 10 + str[i] - 48;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	return (nb * signe);
+	return (0);
 }

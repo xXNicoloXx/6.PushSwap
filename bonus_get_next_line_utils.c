@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   bonus_get_next_line_utils.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/16 09:49:25 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/01/31 15:13:51 by ngriveau         ###   ########.fr       */
+/*   Created: 2022/11/23 17:05:14 by ngriveau          #+#    #+#             */
+/*   Updated: 2023/01/30 17:37:02 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus_push_swap.h"
 
-int	ft_atoi(const char *str)
+char	*ft_dup_upligne(char *upligne, char *buffer, int i, int j)
 {
-	int	i;
-	int	signe;
-	int	nb;
+	int	size;
 
-	signe = 1;
+	size = ft_s(&buffer[i], 1);
+	while (--size + 1)
+	{
+		upligne[j] = buffer[i];
+		buffer[i] = -42;
+		i++;
+		j++;
+	}
 	i = 0;
-	nb = 0;
-	while (('\t' <= str[i] && str[i] <= '\r') || (str[i] == ' '))
-		i++;
-	if (str[i] == '+')
-		i++;
-	else if (str[i] == '-')
+	while (upligne[i] != '\0')
 	{
-		i++;
-		signe = -signe;
-	}
-	while ('0' <= str[i] && str[i] <= '9')
-	{
-		nb = nb * 10 + str[i] - 48;
+		if (upligne[i] == -42)
+			upligne[i] = '\0';
 		i++;
 	}
-	return (nb * signe);
+	return (upligne);
 }
