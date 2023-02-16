@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:21:17 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/02/14 14:44:31 by ngriveau         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:17:06 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,15 @@
 
 int	ft_isdigit_pt2(char *str, int i, long nb, int signe)
 {
+	int	index;
+
+	index = i;
+	while ('0' <= str[i] && str[i] <= '9')
+		nb = nb * 10 + str[i++] - 48;
+	if ((i - index) > 15)
+		return (-1);
 	if (str[i] == '\0' && -2147483648 <= (nb * signe)
-		&& (nb * signe) <= 2147483647)
+		&& (nb * signe) <= 2147483647 && (i - index) < 15)
 		return (0);
 	return (-1);
 }
@@ -42,7 +49,5 @@ int	ft_isdigit(char *str)
 	}
 	if (str[i] == '\0')
 		return (-1);
-	while ('0' <= str[i] && str[i] <= '9')
-		nb = nb * 10 + str[i++] - 48;
 	return (ft_isdigit_pt2(str, i, nb, signe));
 }
