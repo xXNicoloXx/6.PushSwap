@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bonus_checker_pt1.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nicolasgriveau <nicolasgriveau@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:07:34 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/02/14 15:16:58 by ngriveau         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:41:09 by nicolasgriv      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_verif_arg_pt2(int argc, t_swap *s)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (i != argc - 1)
 	{
 		j = i + 1;
