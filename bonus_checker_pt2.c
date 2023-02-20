@@ -6,7 +6,7 @@
 /*   By: ngriveau <ngriveau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 12:07:34 by ngriveau          #+#    #+#             */
-/*   Updated: 2023/02/14 15:44:46 by ngriveau         ###   ########.fr       */
+/*   Updated: 2023/02/20 12:04:04 by ngriveau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,16 +118,16 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	if (ft_save_input_move(argc, argv, &s) == -1)
-		return (write(2, "\e[30;41mError\e[0m\n", 18), 1);
+		return (write(2, "\e[31mError\e[0m\n", 15), 1);
 	if (ft_alloc(&s) == -1)
 		return (-1);
 	exit = ft_push_swap(argc, argv, &s);
 	if (s.error == 1)
-		write(2, "\e[30;41mError\e[0m\n", 18);
+		write(2, "\e[31mError\e[0m\n", 15);
 	else if (exit == 0)
-		write(1, "\e[30;42mOK\e[0m\n", 15);
+		write(1, "\e[32mOK\e[0m\n", 12);
 	else
-		write(1, "\e[30;41mKO\e[0m\n", 15);
+		write(1, "\e[31mKO\e[0m\n", 12);
 	free(s.filltab1);
 	free(s.filltab2);
 	free(s.tab1);
